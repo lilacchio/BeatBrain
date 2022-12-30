@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<div class="container">
+    <div class="col-md-6">
+        <h1>All Playlists</h1>
+    </div>
+<table class="table">
+ 
+    <thead class="thead-dark">
+        <tr>
+          <th scope="col">Track Name</th>
+          <th scope="col">ID</th>
+          <th scope="col">Danceability</th>
+          <th scope="col">Energy</th>
+          <th scope="col">Key</th>
+          <th scope="col">Loudness</th>
+          <th scope="col">Mode</th>
+          <th scope="col">Speechiness</th>
+          <th scope="col">Acousticness</th>
+          <th scope="col">Instrumentalness</th>
+          <th scope="col">Liveness</th>
+          <th scope="col">Valence</th>
+          <th scope="col">Tempo</th>
+          <th scope="col">Duration (ms)</th>
+          <th scope="col">Time Signature</th>
+          <th scope="col">Rating</th>
+        </tr>
+      </thead>
+
+    <tbody class="table-striped">
+        {% for index, row in playlist_df.iterrows %}
+        <tr>
+          <td>{{ index }}</td>
+          <td>{{ id }}</td>
+          <td>{{ row.danceability }}</td>
+          <td>{{ row.energy }}</td>
+          <td>{{ row.key }}</td>
+          <td>{{ row.loudness }}</td>
+          <td>{{ row.mode }}</td>
+          <td>{{ row.speechiness }}</td>
+          <td>{{ row.acousticness }}</td>
+          <td>{{ row.instrumentalness }}</td>
+          <td>{{ row.liveness }}</td>
+          <td>{{ row.valence }}</td>
+          <td>{{ row.tempo }}</td>
+          <td>{{ row.duration_ms }}</td>
+          <td>{{ row.time_signature }}</td>
+          <td>{{ row.rating }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+<button type="submit" class="btn btn-primary">Submit</button>
+<p>Shape of X_names_sparse: {{ X_names_sparse.shape }}</p>
+
+<h2>Feature Importances</h2>
+<ul>
+  {% for feature, importance in feature_importances %}
+    <li>{{ feature }}: {{ importance }}</li>
+  {% endfor %}
+</ul>
+</div>

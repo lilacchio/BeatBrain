@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-11">
+            <h1>All Playlists</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                {% for column in df.columns %}
+                    <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for index, row in df.iterrows %}
+                <tr>
+                    {% for value in row %}
+                        <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h2>Feature Rankings</h2>
+    <ul>
+    {% for feature, importance in feature_importances %}
+        <li>{{ feature }}: {{ importance }}</li>
+    {% endfor %}
+    </ul>
+    {% for key, value in tree_best_estimator.items %}
+    <p>{{ key }}: {{ value }}</p>
+{% endfor %}
+
+<p>Best Score: {{ tree_best_score }}</p>
+<p>Random Best score: {{ gcv_best_score }}</p>
+<p>Best KNN parameters: {{ best_params }}</p>
+<p>Best KNN score: {{ best_score }}</p>
+</div>

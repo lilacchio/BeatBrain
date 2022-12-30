@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-11">
+            <h1>All Playlists</h1>
+            <p>Sparse matrix shape: {{ X_names_sparse.shape.0 }} rows, {{ X_names_sparse.shape.1 }} columns</p>
+    <table class="table">
+        <thead>
+            <tr>
+                {% for column in df.columns %}
+                    <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in X_names_sparse.toarray %}
+                <tr>
+                    {% for value in row %}
+                        <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>  
+    </table>

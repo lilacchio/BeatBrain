@@ -1,0 +1,8 @@
+<h1>Tracks</h1>
+<ul>
+  {% for track in tracks %}
+  <li>
+    {{ track.track_id }} - Acousticness: {{ track.acousticness }}, Danceability: {{ track.danceability }}, Duration: {{ track.duration_ms }}, Energy: {{ track.energy }}, Instrumentalness: {{ track.instrumentalness }}, Key: {{ track.key }}, Liveness: {{ track.liveness }}, Loudness: {{ track.loudness }}, Mode: {{ track.mode }}, Speechiness: {{ track.speechiness }}, Tempo: {{ track.tempo }}, Valence: {{ track.valence }}
+  </li>
+  {% endfor %}
+</ul>
